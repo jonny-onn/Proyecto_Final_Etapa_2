@@ -1,0 +1,236 @@
+/* Header */
+.header {
+  background-color: $header-bg-color;
+  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: $shadow-sm;
+
+  &__container {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+    gap: $spacing-lg;
+
+    @include respond-to(xs) {
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+  }
+
+  &__logo {
+    color: $text-color;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    @include transition(color, 0.3s, ease);
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: $font-size-2xl;
+      color: inherit;
+
+      @include respond-to(xs) {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+
+  &__search {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+
+    @include respond-to(xs) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  &__search-input {
+    flex: 1;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius 0 0 $border-radius;
+    font-size: $font-size-sm;
+    outline: none;
+    @include transition(border-color, 0.3s, ease);
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  &__search-btn {
+    padding: $spacing-sm $spacing-md;
+    background-color: $primary-color;
+    color: white;
+    border: 1px solid $primary-color;
+    border-left: none;
+    border-radius: 0 $border-radius $border-radius 0;
+    cursor: pointer;
+    @include transition(background-color, 0.3s, ease);
+
+    &:hover,
+    &:focus {
+      background-color: #0056b3;
+    }
+  }
+
+  &__search-buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__search-clear {
+    padding: $spacing-sm;
+    background-color: $background-light;
+    color: $text-muted;
+    border: 1px solid $border-color;
+    border-right: none;
+    cursor: pointer;
+    @include transition(all, 0.3s, ease);
+    @include flex-center;
+
+    &:hover,
+    &:focus {
+      background-color: $danger-color;
+      color: white;
+      border-color: $danger-color;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__cart {
+    position: relative;
+  }
+
+  &__cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    padding: $spacing-sm;
+    border-radius: $border-radius;
+    font-size: $font-size-lg;
+    cursor: pointer;
+    @include transition(all, 0.3s, ease);
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+
+  &__cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: $danger-color;
+    color: white;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+}
+
+/* Navigation */
+.nav {
+  background-color: #e9ecef;
+  border-top: 1px solid $border-color;
+
+  &__list {
+    @include container;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: $spacing-xs;
+
+    @include respond-to(xs) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: $spacing-md $spacing-lg;
+    color: $text-color;
+    text-decoration: none;
+    font-weight: $font-weight-normal;
+    @include transition(all, 0.3s, ease);
+    border-radius: $border-radius;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+      background-color: rgba($primary-color, 0.1);
+    }
+
+    &.active {
+      color: $primary-color;
+      background-color: rgba($primary-color, 0.15);
+      font-weight: $font-weight-bold;
+    }
+
+    @include respond-to(xs) {
+      border-radius: 0;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@include respond-to(xs) {
+  .header {
+    &__container {
+      align-items: stretch;
+    }
+
+    &__search {
+      order: 3;
+    }
+
+    &__cart {
+      order: 2;
+      align-self: flex-end;
+    }
+  }
+}

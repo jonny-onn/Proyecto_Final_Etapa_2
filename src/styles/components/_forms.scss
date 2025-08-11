@@ -1,0 +1,240 @@
+/* Formularios */
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__group {
+    margin-bottom: $spacing-lg;
+
+    &--checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $spacing-sm;
+    font-weight: $font-weight-bold;
+    color: $text-color;
+    font-size: $font-size-sm;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    @include form-control;
+
+    &--error {
+      border-color: $danger-color;
+      box-shadow: 0 0 0 0.2rem rgba($danger-color, 0.25);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    appearance: none;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    input[type="checkbox"] {
+      margin: 0;
+      margin-right: $spacing-sm;
+      width: 1.25rem;
+      height: 1.25rem;
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox-mark {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: $spacing-sm;
+    border: 2px solid $border-color;
+    border-radius: $border-radius-sm;
+    background-color: $background-color;
+    position: relative;
+    cursor: pointer;
+    @include transition(all, 0.2s, ease);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      @include transition(opacity, 0.2s, ease);
+    }
+  }
+
+  &__checkbox input[type="checkbox"]:checked + &__checkbox-mark {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__error {
+    display: block;
+    margin-top: $spacing-xs;
+    font-size: $font-size-sm;
+    color: $danger-color;
+  }
+
+  &__help {
+    display: block;
+    margin-top: $spacing-xs;
+    font-size: $font-size-xs;
+    color: $text-muted;
+  }
+
+  &__message {
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-sm;
+
+    &--success {
+      background-color: lighten($success-color, 40%);
+      color: darken($success-color, 10%);
+      border: 1px solid lighten($success-color, 20%);
+    }
+
+    &--error {
+      background-color: lighten($danger-color, 40%);
+      color: darken($danger-color, 10%);
+      border: 1px solid lighten($danger-color, 20%);
+    }
+
+    &--warning {
+      background-color: lighten($warning-color, 30%);
+      color: darken($warning-color, 20%);
+      border: 1px solid lighten($warning-color, 10%);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-md;
+    margin-top: $spacing-xl;
+
+    @include respond-to(xs) {
+      flex-direction: column;
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Estilos específicos para formularios largos */
+.form--alta {
+  max-width: 800px;
+
+  .form__row {
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+/* Input groups */
+.input-group {
+  display: flex;
+  width: 100%;
+
+  &__prepend,
+  &__append {
+    display: flex;
+    align-items: center;
+    padding: $form-input-padding-y $form-input-padding-x;
+    background-color: $background-light;
+    border: $border-width solid $border-color;
+    font-size: $font-size-sm;
+    color: $text-light;
+  }
+
+  &__prepend {
+    border-right: 0;
+    border-radius: $form-input-border-radius 0 0 $form-input-border-radius;
+  }
+
+  &__append {
+    border-left: 0;
+    border-radius: 0 $form-input-border-radius $form-input-border-radius 0;
+  }
+
+  .form__input {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: $form-input-border-radius 0 0 $form-input-border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $form-input-border-radius $form-input-border-radius 0;
+    }
+  }
+}
+
+/* Estados de validación */
+.was-validated {
+  .form__input:valid,
+  .form__textarea:valid,
+  .form__select:valid {
+    border-color: $success-color;
+
+    &:focus {
+      border-color: $success-color;
+      box-shadow: 0 0 0 0.2rem rgba($success-color, 0.25);
+    }
+  }
+
+  .form__input:invalid,
+  .form__textarea:invalid,
+  .form__select:invalid {
+    border-color: $danger-color;
+
+    &:focus {
+      border-color: $danger-color;
+      box-shadow: 0 0 0 0.2rem rgba($danger-color, 0.25);
+    }
+  }
+}

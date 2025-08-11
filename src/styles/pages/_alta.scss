@@ -1,0 +1,222 @@
+/* Alta Page */
+.alta {
+  padding: $spacing-xl 0;
+  min-height: calc(100vh - 200px);
+
+  &__title {
+    text-align: center;
+    font-size: $font-size-3xl;
+    color: $text-color;
+    margin-bottom: $spacing-2xl;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: $primary-color;
+      border-radius: 2px;
+    }
+
+    @include respond-to(xs) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  .form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: $background-color;
+    padding: $spacing-2xl;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow;
+
+    @include respond-to(xs) {
+      padding: $spacing-lg;
+      margin: 0 $spacing-md;
+    }
+  }
+
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &--single {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form__group {
+    position: relative;
+
+    &--checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $spacing-md;
+      background-color: $background-light;
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+      @include transition(all, 0.3s, ease);
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      .form__checkbox {
+        font-weight: $font-weight-bold;
+        color: $text-color;
+      }
+    }
+  }
+
+  .form__label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-weight: $font-weight-bold;
+    color: $text-color;
+    margin-bottom: $spacing-sm;
+
+    &::after {
+      content: '*';
+      color: $danger-color;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .form__input,
+  .form__textarea {
+    width: 100%;
+    padding: $spacing-md;
+    border: 2px solid $border-color;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    @include transition(all, 0.3s, ease);
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      outline: none;
+    }
+
+    &--error {
+      border-color: $danger-color;
+      box-shadow: 0 0 0 3px rgba($danger-color, 0.1);
+    }
+  }
+
+  .form__error {
+    display: block;
+    margin-top: $spacing-xs;
+    color: $danger-color;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+  }
+
+  .form__help {
+    display: block;
+    margin-top: $spacing-xs;
+    color: $text-muted;
+    font-size: $font-size-xs;
+    font-style: italic;
+  }
+
+  .form__message {
+    padding: $spacing-md $spacing-lg;
+    margin-bottom: $spacing-lg;
+    border-radius: $border-radius;
+    font-weight: $font-weight-bold;
+    text-align: center;
+
+    &--success {
+      background-color: lighten($success-color, 40%);
+      color: $success-color-dark-15;
+      border: 2px solid lighten($success-color, 20%);
+    }
+
+    &--error {
+      background-color: lighten($danger-color, 40%);
+      color: $danger-color-dark-15;
+      border: 2px solid lighten($danger-color, 20%);
+    }
+  }
+
+  .form__actions {
+    text-align: center;
+    margin-top: $spacing-2xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $border-color;
+
+    .btn {
+      min-width: 200px;
+      font-weight: $font-weight-bold;
+      
+      @include respond-to(xs) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Animaciones específicas para Alta */
+.alta {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.form {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Estados de validación mejorados */
+.form__group {
+  &.has-success {
+    .form__input,
+    .form__textarea {
+      border-color: $success-color;
+
+      &:focus {
+        border-color: $success-color;
+        box-shadow: 0 0 0 3px rgba($success-color, 0.1);
+      }
+    }
+
+    .form__label::after {
+      content: '✓';
+      color: $success-color;
+    }
+  }
+
+  &.has-error {
+    .form__input,
+    .form__textarea {
+      border-color: $danger-color;
+
+      &:focus {
+        border-color: $danger-color;
+        box-shadow: 0 0 0 3px rgba($danger-color, 0.1);
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@include respond-to(xs) {
+  .alta {
+    padding: $spacing-lg 0;
+
+    &__title {
+      margin-bottom: $spacing-lg;
+    }
+  }
+}

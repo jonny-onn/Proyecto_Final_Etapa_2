@@ -1,0 +1,142 @@
+/* Variables de color principales */
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$accent-color: #e74c3c;
+$success-color: #28a745;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+
+/* Colores de texto y fondo */
+$text-color: #333;
+$text-light: #666;
+$text-muted: #999;
+$background-color: #ffffff;
+$background-light: #f8f9fa;
+
+/* Colores derivados */
+$primary-dark: #0056b3;
+$secondary-dark: #495057;
+
+/* Colores oscurecidos para reemplazar darken() */
+$primary-color-dark-5: #006bb3; /* darken($primary-color, 5%) */
+$primary-color-dark-10: #0056b3; /* darken($primary-color, 10%) */
+$primary-color-dark-15: #004c99; /* darken($primary-color, 15%) */
+
+$secondary-color-dark-10: #5a6268; /* darken($secondary-color, 10%) */
+
+$success-color-dark-15: #1e7e34; /* darken($success-color, 15%) */
+
+$danger-color-dark-5: #c82333; /* darken($danger-color, 5%) */
+$danger-color-dark-10: #bd2130; /* darken($danger-color, 10%) */
+$danger-color-dark-15: #a71e2a; /* darken($danger-color, 15%) */
+
+$white-dark-10: #e6e6e6; /* darken(white, 10%) */
+$white-dark-20: #cccccc; /* darken(white, 20%) */
+
+/* Colores aclarados para reemplazar lighten() */
+$primary-color-light-35: #66b3ff; /* lighten($primary-color, 35%) */
+$primary-color-light-45: #99ccff; /* lighten($primary-color, 45%) */
+
+$secondary-color-light-40: #a6b3c0; /* lighten($secondary-color, 40%) */
+
+$success-color-light-20: #5dd85d; /* lighten($success-color, 20%) */
+$success-color-light-40: #8ce68c; /* lighten($success-color, 40%) */
+
+$danger-color-light-25: #eb7984; /* lighten($danger-color, 25%) */
+$danger-color-light-40: #f2a6b0; /* lighten($danger-color, 40%) */
+$danger-color-light-45: #f5b8c1; /* lighten($danger-color, 45%) */
+
+$warning-color-light-10: #ffce3a; /* lighten($warning-color, 10%) */
+$warning-color-light-30: #ffe066; /* lighten($warning-color, 30%) */
+
+/* Colores del header */
+$header-bg-color: #f8f9fa;
+$header-text-color: #333;
+
+/* Colores de enlaces */
+$link-color: #007bff;
+$link-hover-color: #0056b3;
+
+/* Tipografía */
+$font-stack: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$base-font-size: 16px;
+$base-line-height: 1.6;
+
+/* Tamaños de fuente */
+$font-size-xs: 0.75rem;  /* 12px */
+$font-size-sm: 0.875rem; /* 14px */
+$font-size-base: 1rem;   /* 16px */
+$font-size-lg: 1.125rem; /* 18px */
+$font-size-xl: 1.25rem;  /* 20px */
+$font-size-2xl: 1.5rem;  /* 24px */
+$font-size-3xl: 1.875rem; /* 30px */
+$font-size-4xl: 2.25rem; /* 36px */
+$font-size-5xl: 3rem; /* 48px */
+
+/* Layout */
+$container-max-width: 1200px;
+$container-padding: 1rem;
+
+/* Grid */
+$grid-columns: 12;
+$grid-gutter: 30px;
+
+/* Espaciado */
+$spacing-xs: 0.25rem; /* 4px */
+$spacing-sm: 0.5rem;  /* 8px */
+$spacing-md: 1rem;    /* 16px */
+$spacing-lg: 1.5rem;  /* 24px */
+$spacing-xl: 2rem;    /* 32px */
+$spacing-2xl: 3rem;   /* 48px */
+$spacing-3xl: 4rem;   /* 64px */
+
+/* Bordes */
+$border-radius-sm: 0.25rem;
+$border-radius: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 0.75rem;
+$border-radius-full: 9999px;
+
+$border-width: 1px;
+$border-color: #dee2e6;
+
+/* Sombras */
+$shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+$shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+/* Variables del footer */
+$footer-background-color: #333;
+$footer-text-color: #ffffff;
+$footer-link-color: #a0a0a0;
+
+/* Variables del carrito modal */
+$modal-backdrop-color: rgba(0, 0, 0, 0.5);
+$modal-background-color: #ffffff;
+$modal-border-radius: $border-radius-lg;
+
+/* Variables de breakpoints para responsive */
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+/* Variables específicas para componentes */
+$card-border-radius: $border-radius;
+$card-shadow: $shadow-sm;
+$card-padding: $spacing-lg;
+
+$button-border-radius: $border-radius;
+$button-padding-y: 0.5rem;
+$button-padding-x: 1rem;
+
+$form-input-border-radius: $border-radius;
+$form-input-padding-y: 0.5rem;
+$form-input-padding-x: 0.75rem;

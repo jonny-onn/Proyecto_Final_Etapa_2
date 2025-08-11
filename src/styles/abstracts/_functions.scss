@@ -1,0 +1,68 @@
+/* Función para convertir px a rem */
+@function rem($pixels, $context: $base-font-size) {
+  @return $pixels / $context * 1rem;
+}
+
+/* Función para obtener un color del mapa de colores */
+@function color($color-name) {
+  $colors: (
+    primary: $primary-color,
+    secondary: $secondary-color,
+    accent: $accent-color,
+    success: $success-color,
+    warning: $warning-color,
+    danger: $danger-color,
+    text: $text-color,
+    text-light: $text-light,
+    text-muted: $text-muted,
+    background: $background-color,
+    background-light: $background-light
+  );
+
+  @if map-has-key($colors, $color-name) {
+    @return map-get($colors, $color-name);
+  }
+
+  @warn "Color `#{$color-name}` not found in color map.";
+  @return null;
+}
+
+/* Función para obtener un tamaño de fuente */
+@function font-size($size-name) {
+  $font-sizes: (
+    xs: $font-size-xs,
+    sm: $font-size-sm,
+    base: $font-size-base,
+    lg: $font-size-lg,
+    xl: $font-size-xl,
+    2xl: $font-size-2xl,
+    3xl: $font-size-3xl,
+    4xl: $font-size-4xl
+  );
+
+  @if map-has-key($font-sizes, $size-name) {
+    @return map-get($font-sizes, $size-name);
+  }
+
+  @warn "Font size `#{$size-name}` not found in font-sizes map.";
+  @return $font-size-base;
+}
+
+/* Función para obtener espaciado */
+@function spacing($space-name) {
+  $spacings: (
+    xs: $spacing-xs,
+    sm: $spacing-sm,
+    md: $spacing-md,
+    lg: $spacing-lg,
+    xl: $spacing-xl,
+    2xl: $spacing-2xl
+  );
+
+  @if map-has-key($spacings, $space-name) {
+    @return map-get($spacings, $space-name);
+  }
+
+  @warn "Spacing `#{$space-name}` not found in spacings map.";
+  @return $spacing-md;
+}

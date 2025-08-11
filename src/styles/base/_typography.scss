@@ -1,0 +1,131 @@
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+  color: $text-color;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  
+  @include respond-to(md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  
+  @include respond-to(md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  
+  @include respond-to(md) {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+  
+  @include respond-to(md) {
+    font-size: $font-size-lg;
+  }
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  margin-bottom: $spacing-md;
+  color: $text-color;
+}
+
+a {
+  color: $link-color;
+  @include transition(color);
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+  }
+}
+
+strong, b {
+  font-weight: $font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: $font-size-sm;
+  color: $text-light;
+}
+
+/* Listas */
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+  
+  &.list-unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+/* Blockquote */
+blockquote {
+  padding: $spacing-lg;
+  margin: $spacing-lg 0;
+  border-left: 4px solid $primary-color;
+  background-color: $background-light;
+  
+  p {
+    margin-bottom: 0;
+    font-style: italic;
+  }
+}
+
+/* Código */
+code {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+  color: $accent-color;
+  background-color: $background-light;
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  display: block;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  font-size: 0.875rem;
+  color: $text-color;
+  background-color: $background-light;
+  border-radius: $border-radius;
+  overflow-x: auto;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
